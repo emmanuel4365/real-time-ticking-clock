@@ -41,10 +41,24 @@ body,
   /* transform: rotate(90deg); */
 }
 
+.second-hand,
+.second2-hand {
+  background-color: red;
+}
+
+.second2-hand {
+  display: none;
+}
+
+.hour-hand {
+  height: 5px;
+}
+
 .clock-face {
   position: absolute;
   inset: 0;
   /* background: greenyellow; */
   border-radius: 50%;
-  box-shadow: inset 0 0 0 10px rgba(27, 24, 24, 1);
+  box-shadow: inset 0 0 0 10px rgba(27, 24, 24, 1),
+    0 0 0 10px hsl(326, 100%, 55%);
 }

@@ -1,26 +1,59 @@
 //Select clock hands
 let secondHand = document.querySelector(".second-hand");
-// let minuteHand = document.querySelector(".minute-hand");
-// let hourHand = document.querySelector(".hour-hand");
+let secondHand2 = document.querySelector(".second2-hand");
+let minuteHand = document.querySelector(".minute-hand");
+let hourHand = document.querySelector(".hour-hand");
 
-//set the time
-function setDate() {
-  const date = new Date();
+// Get current time
+let date = new Date();
 
-  let seconds = date.getSeconds();
-  //   let minutes = date.getMinutes();
-  //   let hours = date.getHours();
+let seconds = date.getSeconds();
+console.log(seconds, "first");
+let minutes = date.getMinutes();
+let hours = date.getHours();
 
-  let secondDegrees = (seconds / 60) * 360;
+//Current time set-up
+let secondDegrees = seconds * 6;
+let minuteDegrees = minutes * 6;
+let hourDegrees = hours * 30;
+
+secondHand.style.transform = `rotate(${secondDegrees}deg)`;
+minuteHand.style.transform = `rotate(${minuteDegrees}deg)`;
+hourHand.style.transform = `rotate(${hourDegrees}deg)`;
+
+//Get the time ticking
+function tickTime() {
+  seconds = new Date().getSeconds();
+
+  secondDegrees = (seconds / 60) * 360;
   console.log(secondDegrees);
-  //   let minuteDegrees = ( / 3600) * 360;
-  //   console.log(minuteDegrees);
-  //   let hourDegrees = (secondDegrees / 216000) * 360;
-  //   console.log(hourDegrees);
+
+  if (secondDegrees == 0) {
+    minuteDegrees += 6;
+    minuteHand.style.transform = `rotate(${minuteDegrees}deg)`;
+  }
+
+  if (minuteDegrees == 72) {
+    hourDegrees += 6;
+    hourHand.style.transform = `rotate(${hourDegrees}deg)`;
+  }
+
+  if (secondDegrees >= 354) {
+    secondHand.style.display = "none";
+    secondHand2.style.display = "block";
+  }
+
+  if (secondDegrees == 0) {
+    secondHand.style.display = "none";
+    secondHand2.style.display = "block";
+  }
+
+  if (secondDegrees > 0) {
+    secondHand.style.display = "block";
+    secondHand2.style.display = "none";
+  }
 
   secondHand.style.transform = `rotate(${secondDegrees}deg)`;
-  //   minuteHand.style.transform = `rotate(${minuteDegrees}deg)`;
-  //   hourHand.style.transform = `rotate(${hourDegrees}deg)`;
 }
 
-// setInterval(setDate, 1000);
+setInterval(tickTime, 1000);
