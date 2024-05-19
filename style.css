@@ -46,11 +46,14 @@ body,
   background-color: red;
 }
 
-.second2-hand {
+.second2-hand,
+.hour2-hand,
+.minute2-hand {
   display: none;
 }
 
-.hour-hand {
+.hour-hand,
+.hour2-hand {
   height: 5px;
 }
 
