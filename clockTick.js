@@ -45,11 +45,9 @@ function tickTime() {
       hourHand.style.transform = `rotate(${hourDegrees}deg)`;
     }
 
-    // minuteHand.style.transform = `rotate(${minuteDegrees}deg)`;
-    // hourHand.style.transform = `rotate(${hourDegrees}deg)`;
-    console.log(secondDegrees);
-    console.log(minuteDegrees);
-    console.log(hourDegrees);
+    // console.log(secondDegrees);
+    // console.log(minuteDegrees);
+    // console.log(hourDegrees);
   }
 
   if (minuteDegrees == 360) {
